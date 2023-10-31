@@ -34,6 +34,7 @@ public class CursoController {
     @PostMapping("/criar")
     public ResponseEntity<String> criarCurso(@RequestBody Curso novoCurso) {
         try {
+            cursoService.salvar(novoCurso);
             return new ResponseEntity<>("Curso criado com sucesso", HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>("Erro ao criar o curso: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);

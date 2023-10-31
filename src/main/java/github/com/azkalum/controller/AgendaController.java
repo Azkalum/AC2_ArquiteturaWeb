@@ -35,6 +35,7 @@ public class AgendaController {
     @PostMapping("/criar")
     public ResponseEntity<String> criarAgenda(@RequestBody Agenda novaAgenda) {
         try {
+            agendaService.salvar(novaAgenda);
             return new ResponseEntity<>("Agenda criada com sucesso", HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>("Erro ao criar a agenda: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);

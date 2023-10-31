@@ -1,6 +1,7 @@
 package github.com.azkalum.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -42,10 +43,11 @@ public class Curso {
             joinColumns = @JoinColumn(name = "curso_id"),
             inverseJoinColumns = @JoinColumn(name = "professor_id")
     )
-    @JsonBackReference
+
     private List<Professor> professores;
 
     @OneToMany(mappedBy = "curso")
+    @JsonManagedReference
     private List<Agenda> agendas;
 
 }

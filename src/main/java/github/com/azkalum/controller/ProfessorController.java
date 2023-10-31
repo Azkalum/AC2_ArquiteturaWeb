@@ -48,7 +48,7 @@ public class ProfessorController {
     @PostMapping("/criar")
     public ResponseEntity<String> criarProfessor(@RequestBody Professor novoProfessor) {
         try {
-            Professor professorCriado = professorService.salvar(novoProfessor);
+            professorService.salvar(novoProfessor);
             return new ResponseEntity<>("Professor criado com sucesso", HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>("Erro ao criar o professor: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);

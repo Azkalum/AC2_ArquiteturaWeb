@@ -1,5 +1,6 @@
 package github.com.azkalum.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import github.com.azkalum.converter.LocalTimeConverter;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Future;
@@ -41,6 +42,7 @@ public class Agenda {
 
     @ManyToOne
     @NotNull
+    @JsonBackReference
     private Curso curso;
 
     @ManyToOne
